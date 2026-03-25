@@ -1,0 +1,395 @@
+/* --- Global --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f7f7;
+}
+
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+
+/* --- Header --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #393e46;
+    color: #f8b500;
+    padding: 1.2rem 2rem;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.dashboard-header .btn {
+    width: auto;
+    padding: 10px 18px;
+}
+
+/* --- Sidebar --- */
+.dashboard-layout {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.sidebar {
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: #393e46;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.sidebar h2 {
+    color: #f8b500; 
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.sidebar .btn {
+    width: 100%;
+    text-align: left;
+    background: #5c636e; 
+    color: #f7f7f7; 
+}
+
+.sidebar .btn:hover {
+    background: #f8b500; 
+    color: #393e46; 
+}
+
+/* --- Content --- */
+.section-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.card {
+    background: #393e46;
+    padding: 1.7rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    border: 1px solid #5c636e;
+    transition: 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.card h3 {
+    margin: 0 0 1rem;
+    color: #f8b500;
+    font-size: 1.3rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Forms --- */
+.form-group {
+    margin-bottom: 1.1rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    background: #5c636e;
+    border: 1px solid #393e46;
+    color: #f7f7f7;
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #f8b500;
+    box-shadow: 0 0 6px rgba(248, 181, 0, 0.5);
+    outline: none;
+}
+
+/* --- Buttons --- */
+.btn {
+    background-color: #f8b500;
+    color: #393e46;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e6a500;
+}
+
+.btn-danger {
+    background-color: #ff4d6b;
+    color: #f7f7f7;
+}
+
+.btn-danger:hover {
+    background-color: #e63e59;
+}
+
+.btn-warning {
+    background-color: #f8b500;
+    color: #393e46;
+}
+
+.btn-warning:hover {
+    background-color: #e6a500;
+}
+
+/* --- Table Actions Alignment --- */
+.table-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-actions .btn {
+    flex: 1;
+    min-width: 60px;
+}
+
+/* --- Tables --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.2rem;
+    color: #f7f7f7;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #5c636e;
+    text-align: left;
+}
+
+th {
+    background-color: #5c636e;
+    color: #f8b500;
+}
+
+tr:nth-child(even) {
+    background-color: #4a4f58;
+}
+
+/* --- Notifications --- */
+.notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =============================
+   STUDENT ATTENDANCE BUTTONS
+============================= */
+
+/* Container for Present/Absent buttons inside table */
+.attendance-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* General button inside table */
+.attendance-actions button {
+  flex: 1;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+  min-width: 70px;
+}
+
+/* Present / Absent colors */
+.attendance-actions .present {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.attendance-actions .present.inactive {
+  background-color: #c3e6cb;
+  color: #155724;
+}
+
+.attendance-actions .absent {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.attendance-actions .absent.inactive {
+  background-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Table fixed alignment */
+table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+table th {
+  text-align: center;
+}
+
+/* Attendance % column styling */
+table td:last-child {
+  font-weight: bold;
+}
+
+
+/* --- Attendance Summary Cards --- */
+.attendance-summary .stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.attendance-summary .stat-box {
+    flex: 1;
+    min-width: 120px;
+    background: #5c636e;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.attendance-summary .stat-box h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #f7f7f7;
+    letter-spacing: 0.5px;
+}
+
+.attendance-summary .stat-box p {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f7f7f7;
+}
+
+/* Color variants for summary boxes */
+.attendance-summary .stat-box.present {
+    background: #28a745;
+    color: #fff;
+}
+
+.attendance-summary .stat-box.absent {
+    background: #dc3545;
+    color: #fff;
+}
+
+.attendance-summary .stat-box.percentage {
+    background: #f8b500;
+    color: #393e46;
+}
+
+/* Hover effect */
+.attendance-summary .stat-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.custom-confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.custom-confirm-card {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+
+.present-btn {
+  background-color: #c3e6cb;
+  color: #155724;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.present-btn.active {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.absent-btn {
+  background-color: #f5c6cb;
+  color: #721c24;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.absent-btn.active {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.dashboard-header-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
