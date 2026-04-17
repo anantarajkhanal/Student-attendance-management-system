@@ -42,17 +42,7 @@ router.get('/profile/:studentId', async (req, res) => {
   }
 });
 
-// --- Get class subjects ---
-router.get('/:className', async (req, res) => {
-  try {
-    const cls = await Class.findOne({ className: req.params.className });
-    if (!cls) return res.status(404).json({ success: false, message: 'Class not found' });
 
-    res.json({ success: true, subjects: cls.subjects || [] });
-  } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
-  }
-});
 
 // --- Get student's class ---
 router.get('/my-class/:studentId', async (req, res) => {
@@ -128,6 +118,19 @@ router.get('/leaderboard/:className', async (req, res) => {
     res.json({ success: true, leaderboard });
   } catch (err) {
     console.error(err);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
+// --- Get class subjects ---
+router.get('/:className', async (req, res) => {
+  try {
+    const cls = await Class.findOne({ className: req.params.className });
+    if (!cls) return res.status(404).json({ success: false, message: 'Class not found' });
+
+    res.json({ success: true, subjects: cls.subjects || [] });
+  } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
 });
